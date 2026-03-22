@@ -1,0 +1,85 @@
+/* ── SIDEWORK DESIGN TOKENS ──────────────────────────────────────────
+   Single source of truth for all colors, typography, and spacing.
+   Import this into any component that needs base styles.
+   ─────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Brand colors */
+  --navy:        #0F1923;
+  --navy-mid:    #172130;
+  --navy-card:   #1E2D3D;
+  --navy-border: #2A3F55;
+  --orange:      #FF5C28;
+  --orange-l:    #FF7A4A;
+  --orange-glow: rgba(255, 92, 40, 0.12);
+  --muted:       #8A9BB0;
+  --green:       #22C55E;
+  --green-glow:  rgba(34, 197, 94, 0.10);
+  --amber:       #F59E0B;
+  --white:       #FFFFFF;
+  --cream:       #FAF8F4;
+  --ink:         #1A1612;
+  --receipt-rule:#E2DDD6;
+  --receipt-fade:#9B8E7E;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--navy);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--navy-border); border-radius: 2px; }
+
+/* ── FOCUS ── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--orange) !important;
+}
